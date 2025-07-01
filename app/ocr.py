@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from PIL import Image
 import os
 import re
-from openai import OpenAI
+# from openai import OpenAI
 import csv
 import gspread
 from google.oauth2.service_account import Credentials
@@ -12,8 +12,8 @@ from google.oauth2.service_account import Credentials
 # pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
 # .envからAPIキーを読み込む
-load_dotenv("../.env")
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+# load_dotenv("../.env")
+# client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 # api_key = os.getenv("OPENAI_API_KEY")
 # print(api_key)
 
