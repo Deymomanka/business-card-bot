@@ -122,7 +122,7 @@ def save_to_gsheets(data: dict, spreadsheet_name: str, worksheet_name: str):
     scopes = ["https://www.googleapis.com/auth/spreadsheets",
               "https://www.googleapis.com/auth/drive"]
     creds = Credentials.from_service_account_file(
-        "../key/meishi-project-gspread.json", scopes=scopes
+        "key/meishi-project-gspread.json", scopes=scopes
     )
     client = gspread.authorize(creds)
 
@@ -155,5 +155,5 @@ def process_all_images(folder_path):
 
 
 if __name__ == "__main__":
-    process_all_images("../images/")
+    process_all_images("images/")
 

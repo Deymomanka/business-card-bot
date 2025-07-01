@@ -30,7 +30,7 @@ def webhook():
 @handler.add(MessageEvent, message=ImageMessage)
 def handle_image(event):
     message_id = event.message.id
-    image_path = f"../images/{message_id}.jpg"
+    image_path = f"images/{message_id}.jpg"
     content = line_bot_api.get_message_content(message_id)
 
     with open(image_path, "wb") as f:
