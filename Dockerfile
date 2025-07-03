@@ -1,13 +1,15 @@
 FROM python:3.9
 
-WORKDIR /app
-COPY . /app
-
 RUN apt-get update && \
-    apt-get install -y tesseract-ocr
-    which tesseract
+    apt-get -qq -y install tesseract-ocr && \
+    apt-get -qq -y install libtesseract-dev
 
+WORKDIR /app
+
+COPY requirements.txt requirements.txt
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-CMD ["python", "app/main.py"]
+COPY . .
+
+CMD ["gunicorn", "app:app"]
