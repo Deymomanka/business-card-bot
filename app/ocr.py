@@ -1,4 +1,5 @@
 import pytesseract
+pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
 from dotenv import load_dotenv
 from PIL import Image
 import os
