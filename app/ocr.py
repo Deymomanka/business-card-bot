@@ -1,7 +1,4 @@
 import pytesseract
-import shutil
-pytesseract.pytesseract.tesseract_cmd = shutil.which("tesseract")
-print("Using Tesseract at:", pytesseract.pytesseract.tesseract_cmd)
 from dotenv import load_dotenv
 from PIL import Image
 import os
