@@ -9,6 +9,7 @@ PoCレベル開発のLineBotにて、ユーザーの名刺情報をGoogle Spread
   - 役職（省略）
   - 住所（省略）
   - 郵便番号（省略）
+  - 現在時刻
   - 電話番号
   - 携帯番号
   - 電子メール
@@ -16,7 +17,7 @@ PoCレベル開発のLineBotにて、ユーザーの名刺情報をGoogle Spread
 ## 使用技術・ライブラリ
 
 - **開発環境**: VSCode  
-- **プログラミング言語**: Python  
+- **プログラミング言語**: Python3
 - **その他技術**:  
   - `LINE Messaging API`（Webhook対応）  
   - `Flask`（WEB）  
