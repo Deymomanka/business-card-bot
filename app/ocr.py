@@ -79,16 +79,17 @@ def extract_info_by_regex(text):
     email_match = re.search(r"[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+", text)
     if email_match:
         result["email"] = email_match.group()
+
+    # 携帯を先に探す
+    mobile_match = re.search(r"(携帯|Mobile|Mob)[:：]?\s?(\d{2,4}-\d{2,4}-\d{3,4}|\d{10,11})", text)
+    if mobile_match:
+        result["mobile"] = mobile_match.group(2)
+        text = text.replace(mobile_match.group(), "")
     
     # 電話番号
     tel_match = re.search(r"(TEL|Tel|tel|電話)?[:：]?\s?(\d{2,4}-\d{2,4}-\d{3,4}|\d{10,11})", text)
     if tel_match:
         result["tel"] = tel_match.group(2)
-
-    # 携帯番号（Mobileなどの表記がある場合）
-    mobile_match = re.search(r"(携帯|Mobile|Mob)?[:：]?\s?(\d{2,4}-\d{2,4}-\d{3,4}|\d{10,11})", text)
-    if mobile_match:
-        result["mobile"] = mobile_match.group(2)
 
     # # 郵便番号
     # postal_match = re.search(r"〒\d{3}-\d{4}", text)
