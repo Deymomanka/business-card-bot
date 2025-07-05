@@ -2,10 +2,8 @@ from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, ImageMessage, TextSendMessage
-
 import os
 from dotenv import load_dotenv
-
 from app.ocr import extract_text_from_image, extract_info_by_regex, save_to_gsheets
 
 app = Flask(__name__)

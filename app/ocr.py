@@ -86,7 +86,7 @@ def extract_info_by_regex(text):
         result["tel"] = tel_match.group(2)
 
     # 携帯番号（Mobileなどの表記がある場合）
-    mobile_match = re.search(r"(Mobile|携帯)?[:：]?\s?(\d{2,4}-\d{2,4}-\d{3,4}|\d{10,11})", text)
+    mobile_match = re.search(r"(携帯|Mobile|Mob)?[:：]?\s?(\d{2,4}-\d{2,4}-\d{3,4}|\d{10,11})", text)
     if mobile_match:
         result["mobile"] = mobile_match.group(2)
 
