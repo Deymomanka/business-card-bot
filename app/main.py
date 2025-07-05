@@ -50,7 +50,7 @@ def handle_image(event):
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(
-            text=f"名刺情報:\nEmail: {structured_data['email']}\nPhone: {structured_data['tel']}\nMobile: {structured_data['mobile']}")
+            text=f"名刺情報:\nEmail: {structured_data['date']}\nEmail: {structured_data['email']}\nPhone: {structured_data['tel']}\nMobile: {structured_data['mobile']}")
     )
 
 if __name__ == "__main__":

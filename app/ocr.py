@@ -7,6 +7,7 @@ import re
 import csv
 import gspread
 from google.oauth2.service_account import Credentials
+import datetime
 
 # MacやLinuxではこの設定は不要（Windowsのみパスが必要な場合あり）
 # pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
@@ -24,7 +25,7 @@ def extract_text_from_image(image_path):
         raise FileNotFoundError(f"画像が見つかりません: {image_path}")
     image = Image.open(image_path)
     image.thumbnail((1024, 1024))
-    text = pytesseract.image_to_string(image, lang='eng+jpn')
+    text = pytesseract.image_to_string(image, lang='eng')
     return text
 
 # def parse_business_card(raw_text):
@@ -71,6 +72,7 @@ def extract_info_by_regex(text):
     # }
 
     result = {
+    "date": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
     "tel": "",
     "mobile": "",
     "email": ""
