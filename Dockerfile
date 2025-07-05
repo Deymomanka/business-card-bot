@@ -11,4 +11,5 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD ["gunicorn", "-b", "0.0.0.0:10000", "app.main:app"]
+CMD ["gunicorn", "-b", "0.0.0.0:10000", "-w", "1", "app.main:app"]
+
