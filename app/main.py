@@ -50,8 +50,9 @@ def handle_image(event):
     save_to_gsheets(structured_data, spreadsheet_name="名刺登録一覧", worksheet_name="シート1")
 
     # LINEへ結果を返信
+    user_id = event.source.user_id
     line_bot_api.reply_message(
-        event.reply_token,
+        user_id,
         TextSendMessage(
             text=f"名刺情報:\nDate: {structured_data['date']}\nEmail: {structured_data['email']}\nPhone: {structured_data['tel']}\nMobile: {structured_data['mobile']}")
     )
