@@ -1,10 +1,11 @@
-import pytesseract
+
+from google.cloud import vision
 from dotenv import load_dotenv
 from PIL import Image
 import os
+import json
 import re
-# from openai import OpenAI
-import csv
+# import csv
 import gspread
 from google.oauth2.service_account import Credentials
 import datetime
@@ -18,15 +19,29 @@ import datetime
 # api_key = os.getenv("OPENAI_API_KEY")
 # print(api_key)
 
+json_path = "../key/vision_key.json"
+# with open(json_path, "w") as f:
+#     json.dump(json.loads(os.environ["GOOGLE_CREDENTIALS_JSON"]), f)
+
+# これでGoogleライブラリが読めるようになる
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = json_path
+
 
 def extract_text_from_image(image_path):
+    client = vision.ImageAnnotatorClient()
+    with open(image_path, "rb") as image_file:
+        content = image_file.read()
+    image = vision.Image(content=content)
 
-    if not os.path.exists(image_path):
-        raise FileNotFoundError(f"画像が見つかりません: {image_path}")
-    image = Image.open(image_path)
-    image.thumbnail((1024, 1024))
-    text = pytesseract.image_to_string(image, lang='jpn')
-    return text
+    response = client.text_detection(image=image)
+    texts = response.text_annotations
+
+    if texts:
+        full_text = texts[0].description
+    else:
+        print("文字が検出されませんでした。")
+    
+    return full_text
 
 # def parse_business_card(raw_text):
 #     system_prompt = """
@@ -126,7 +141,7 @@ def save_to_gsheets(data: dict, spreadsheet_name: str, worksheet_name: str):
     scopes = ["https://www.googleapis.com/auth/spreadsheets",
               "https://www.googleapis.com/auth/drive"]
     creds = Credentials.from_service_account_file(
-        "key/meishi-project-gspread.json", scopes=scopes
+        "../key/meishi-project-gspread.json", scopes=scopes
     )
     client = gspread.authorize(creds)
 
@@ -150,7 +165,8 @@ def process_all_images(folder_path):
             full_path = os.path.join(folder_path, filename)
             print(f"\n📷 処理中：{filename}")
             raw_text = extract_text_from_image(full_path)
-            #print(raw_text)
+            print("---全文OCR---")
+            print(raw_text)
             #structured = parse_business_card(raw_text)
             structured = extract_info_by_regex(raw_text)
             print("📦 構造化結果：")
@@ -159,5 +175,5 @@ def process_all_images(folder_path):
 
 
 if __name__ == "__main__":
-    process_all_images("images/")
+    process_all_images("../images/")
 

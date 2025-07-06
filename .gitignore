@@ -3,3 +3,4 @@ __pycache__/
 *.log
 *.sqlite3
 env
+app/debager.py

@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "business-card-465104",
+  "private_key_id": "1c5186f5a9fc64179356b12aea1cfcda2986934b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCreX/UxoiKgTWl\nAAJuYqdxk6UnXxFm+G4siIC7BDi6pjsY1LrYzwLotdkqY1ebEPVtT3e0712L8eU6\nqa0h2K05yiQR4e8i5ggvJ3pJkB/ZOu11Ouzp4mA2FhrFUMlRfYVvykzrMXJJakK2\n2Ok2zCRk2CPwbZSt3p6Upltdc/ebIc/kID4h6W0L6mPBopvote4/cak0Io4cfUCe\nXxf8yn8XCc6MjNlnpHn/TxbqgbN0TYK52TbBUUW4lJ2hib7jzA3+/633knvpnNtt\nqCJMyW6BFu0FjYUiiB1M4ShATUbYTXWj+dUsVBhaFX0ekpEiovkB2zUoOAMS1vtn\nUFmnBk77AgMBAAECggEASwWIYQ5PdNGdJ8h+R89P1Qg0zKnyUivFACTktW3eaAMM\nfgush+jiK/BLyBjYnlZoGmAXTokfU3gMw4Ky5ckH2O3QpCZGWu1rjT3nacHtvTvj\n4lNajeVmFKPNKKD0w3t4YvWOe6QRjX85GwiB2GCuV5Sc/LbkwsFQflbeSF/RaARG\nWxQnwgEzQLJ8KGv3XOwtr8GOs3wUvmKuvfpWtpOaH1Q9nPCtTVmsvzF4IHOL8gyM\nA1cNTgkHMIdzvvqQBcy0WLM7VyWm8b+hA/yxZEyidM//ml2KykFN4p4x9fc9IF3R\n+oyoMFU6plW/DKbxcz4WJ5PYUhZbU97DlYLEHeC2AQKBgQDfaMNLOnAdi6Y0c0AJ\nUkt+6RXT8IEF3aOqDBbtleIbMe2eYClRoeAVHkzAevuABshgFFiWO0X/tzUCh2+H\n0qljpAJJer7ETgubfvN66kVYa5QORO/FmSelpVdyR7Z4zV8smLcmUqgvC62pgObO\n4kdt7AcCSSXPgIhEIfyiabfh+wKBgQDEfTvDkvWW8iYNnuYkMMxj7Xej+IvX6sld\nSCQSSZo3kReJfXa3DCPRhOmF7P74TK+7RGXqt3fJGBKCBMUg91ypgO4EiD8PlUts\nhgrTdrYhn9CYiY3odzBqDGigX0VujvioKZD1m1k6FYm3AZZP7GHsaAN3QOajAxRb\nUzvvKQy3AQKBgH8PXSr25HbZSsC/32atyEQ4mnJ8cVT9tixrTcr4GK1w2vzdIgLM\ndt5r6ij6iPlKYkHKsItY0Lnb36k9j+AGntINoENcLQ0GejGIpT9958ye+oiXCmsu\nbM8X10Emqg/QddWuUVPZZM/E65LgveRh61AIEgBpy7hVGKrvTXiteahrAoGAO+TU\nt9vvIrDzaol6K6P4WamEI6ZaslluQhIAdNacvL1siEuHSWrY7D/wkxNX8UYm9xV1\nX6PHTrQYyCs+D7t3MnALnbQOTOi8UftWB3mTMRKvGiAr8qWKS3k211PTLU1FfLUW\n69cLzsnL7c39DKXIf7CBBfPxmdURenkXtuIzbwECgYB+aHvxKYoZep7dCYes8dbw\nM0lebCWgf/95LwzrJVqvJfafLa5cDIwcvk6soKvb/HsoyBXqcIEcAZJCT/wgIpTr\n18gJUb2ciDmwqpcfjYRL+SrTZyuxLzSGgtzcfBCgoB+qLSzotVtZPdYBzFbf7/+h\nnw1MgmZDXMmIzG6YYv/hGQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "business-card-proj@business-card-465104.iam.gserviceaccount.com",
+  "client_id": "102665127957246207807",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/business-card-proj%40business-card-465104.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
