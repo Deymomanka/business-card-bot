@@ -57,7 +57,7 @@ def handle_image(event):
 
     # LINEへ結果を返信
     user_id = event.source.user_id
-    line_bot_api.reply_message(
+    line_bot_api.push_message(
         user_id,
         TextSendMessage(
             text=f"名刺情報:\nDate: {structured_data['date']}\nEmail: {structured_data['email']}\nPhone: {structured_data['tel']}\nMobile: {structured_data['mobile']}")
