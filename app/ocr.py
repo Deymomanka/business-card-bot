@@ -19,12 +19,13 @@ import datetime
 # api_key = os.getenv("OPENAI_API_KEY")
 # print(api_key)
 
-json_path = "../key/vision_key.json"
+#json_path = "key/vision_key.json"
 # with open(json_path, "w") as f:
 #     json.dump(json.loads(os.environ["GOOGLE_CREDENTIALS_JSON"]), f)
 
 # これでGoogleライブラリが読めるようになる
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = json_path
+# json_path = "key/vision_key.json"
+# os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = json_path
 
 
 def extract_text_from_image(image_path):
@@ -74,7 +75,7 @@ def extract_text_from_image(image_path):
 #     return response.choices[0].message.content
 
 
-def extract_info_by_regex(text):
+def extract_info_by_regex(text, message_id):
     # result = {
     #     "name": "",
     #     "company": "",
@@ -90,7 +91,8 @@ def extract_info_by_regex(text):
     "date": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
     "tel": "",
     "mobile": "",
-    "email": ""
+    "email": "",
+    "message_id": message_id
 }
 
     # メールアドレス
@@ -130,8 +132,7 @@ def extract_info_by_regex(text):
 def is_duplicate_entry(worksheet, data):
     existing_records = worksheet.get_all_records()
     for record in existing_records:
-         if (record.get("email") and record["email"] == data.get("email")) or \
-           (record.get("tel") and record["tel"] == data.get("tel")):
+        if record.get("message_id") == data.get("message_id"):
             return True
     return False
 
@@ -141,7 +142,7 @@ def save_to_gsheets(data: dict, spreadsheet_name: str, worksheet_name: str):
     scopes = ["https://www.googleapis.com/auth/spreadsheets",
               "https://www.googleapis.com/auth/drive"]
     creds = Credentials.from_service_account_file(
-        "../key/meishi-project-gspread.json", scopes=scopes
+        "key/meishi-project-gspread.json", scopes=scopes
     )
     client = gspread.authorize(creds)
 
@@ -157,6 +158,8 @@ def save_to_gsheets(data: dict, spreadsheet_name: str, worksheet_name: str):
         print("✅ データを追加しました")
     else:
         print("⚠️ すでに登録済みのデータです（スキップ）")
+    
+    
 
 
 def process_all_images(folder_path):
@@ -165,8 +168,8 @@ def process_all_images(folder_path):
             full_path = os.path.join(folder_path, filename)
             print(f"\n📷 処理中：{filename}")
             raw_text = extract_text_from_image(full_path)
-            print("---全文OCR---")
-            print(raw_text)
+            #print("---全文OCR---")
+            #print(raw_text)
             #structured = parse_business_card(raw_text)
             structured = extract_info_by_regex(raw_text)
             print("📦 構造化結果：")

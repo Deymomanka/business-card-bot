@@ -42,7 +42,7 @@ def handle_image(event):
 
     # OCRと正規表現による構造化
     text = extract_text_from_image(image_path)
-    structured_data = extract_info_by_regex(text)
+    structured_data = extract_info_by_regex(text, message_id)
 
     print("📦 構造化結果：")
     print(structured_data)
