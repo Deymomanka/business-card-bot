@@ -5,7 +5,7 @@ from PIL import Image
 import os
 import json
 import re
-from datetime import datetime
+import datetime
 from zoneinfo import ZoneInfo
 # import csv
 import gspread
@@ -90,7 +90,7 @@ def extract_info_by_regex(text, message_id):
     # }
 
     result = {
-    "date": datetime.now(ZoneInfo("Asia/Tokyo")).strftime("%Y-%m-%d %H:%M:%S"),
+    "date": datetime.datetime.now(ZoneInfo("Asia/Tokyo")).strftime("%Y-%m-%d %H:%M:%S"),
     "tel": "",
     "mobile": "",
     "email": "",
