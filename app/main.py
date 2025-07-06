@@ -15,6 +15,9 @@ LINE_CHANNEL_SECRET = os.getenv("LINE_CHANNEL_SECRET")
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
+json_path = "key/vision_key.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = json_path
+
 @app.route("/webhook", methods=['POST'])
 def webhook():
     body = request.get_data(as_text=True)
