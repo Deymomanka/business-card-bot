@@ -30,6 +30,12 @@ def webhook():
 
 @handler.add(MessageEvent, message=ImageMessage)
 def handle_image(event):
+    # まず即レス
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text="名刺を処理中です。少しお待ちください！")
+    )
+
     message_id = event.message.id
     image_path = f"images/{message_id}.jpg"
     content = line_bot_api.get_message_content(message_id)
@@ -38,7 +44,7 @@ def handle_image(event):
         for chunk in content.iter_content():
             f.write(chunk)
 
-    print(f"✅ 画像を保存しました: {image_path}")
+    #print(f"✅ 画像を保存しました: {image_path}")
 
     # OCRと正規表現による構造化
     text = extract_text_from_image(image_path)
