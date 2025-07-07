@@ -4,3 +4,7 @@ __pycache__/
 *.sqlite3
 env
 app/debager.py
+key/meishi-project-gspread.json
+key/vision_key.json
+
+

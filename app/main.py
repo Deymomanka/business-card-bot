@@ -7,15 +7,15 @@ from dotenv import load_dotenv
 from app.ocr import extract_text_from_image, extract_info_by_regex, save_to_gsheets
 
 app = Flask(__name__)
-load_dotenv()
 
+load_dotenv()
 LINE_CHANNEL_ACCESS_TOKEN = os.getenv("LINE_CHANNEL_ACCESS_TOKEN")
 LINE_CHANNEL_SECRET = os.getenv("LINE_CHANNEL_SECRET")
 
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
-json_path = "key/vision_key.json"
+json_path = "key.json"
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = json_path
 
 @app.route("/webhook", methods=['POST'])
@@ -66,4 +66,3 @@ def handle_image(event):
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
-    #app.run(port=5000)

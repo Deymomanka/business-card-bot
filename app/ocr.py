@@ -3,31 +3,12 @@ from google.cloud import vision
 from dotenv import load_dotenv
 from PIL import Image
 import os
-import json
 import re
 import datetime
 from zoneinfo import ZoneInfo
-# import csv
 import gspread
 from google.oauth2.service_account import Credentials
 import datetime
-
-# MacやLinuxではこの設定は不要（Windowsのみパスが必要な場合あり）
-# pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-
-# .envからAPIキーを読み込む
-# load_dotenv("../.env")
-# client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-# api_key = os.getenv("OPENAI_API_KEY")
-# print(api_key)
-
-#json_path = "key/vision_key.json"
-# with open(json_path, "w") as f:
-#     json.dump(json.loads(os.environ["GOOGLE_CREDENTIALS_JSON"]), f)
-
-# これでGoogleライブラリが読めるようになる
-# json_path = "key/vision_key.json"
-# os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = json_path
 
 
 def extract_text_from_image(image_path):
@@ -95,7 +76,7 @@ def extract_info_by_regex(text, message_id):
     "mobile": "",
     "email": "",
     "message_id": message_id
-}
+    }
 
     # メールアドレス
     email_match = re.search(r"[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+", text)
@@ -144,7 +125,7 @@ def save_to_gsheets(data: dict, spreadsheet_name: str, worksheet_name: str):
     scopes = ["https://www.googleapis.com/auth/spreadsheets",
               "https://www.googleapis.com/auth/drive"]
     creds = Credentials.from_service_account_file(
-        "key/meishi-project-gspread.json", scopes=scopes
+        "key/gspread.json", scopes=scopes
     )
     client = gspread.authorize(creds)
 
@@ -170,9 +151,6 @@ def process_all_images(folder_path):
             full_path = os.path.join(folder_path, filename)
             print(f"\n📷 処理中：{filename}")
             raw_text = extract_text_from_image(full_path)
-            #print("---全文OCR---")
-            #print(raw_text)
-            #structured = parse_business_card(raw_text)
             structured = extract_info_by_regex(raw_text)
             print("📦 構造化結果：")
             print(structured)
