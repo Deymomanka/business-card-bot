@@ -30,7 +30,7 @@ PoC（概念実証）レベル開発したLineBotににより、ユーザーが�
 
 #### １）以下のLine BotのQRコードのスキャン
 
-「QRコード」
+![image](https://github.com/user-attachments/assets/00d0b0c5-f8cb-4c6b-94fb-802fbdf687c5)
 
 #### ２）　名刺画像のアップロード
 
