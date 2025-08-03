@@ -1,7 +1,7 @@
 # LineBot × Google OCR × Python 名刺情報登録ツール
 ## プロジェクト概要
 
-PoC（概念実証）レベル開発したLineBotににより、ユーザーが送信した名刺画像から情報を抽出し、Google Spreadsheetに自動登録するPythonツール。
+PoC（概念実証）レベル開発したLineBotにより、ユーザーが送信した名刺画像から情報を抽出し、Google Spreadsheetに自動登録するPythonツール。
 
 #### 登録する情報：
   - 名前（省略）  
