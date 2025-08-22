@@ -66,6 +66,9 @@ LineBotに文字が鮮明な名刺画像を送信してください。
 
 ##### このツールの拡張やカスタマイズについてのご相談はお気軽にどうぞ。
 
+[![Twitter](https://img.shields.io/badge/Twitter-@yourhandle-1DA1F2?style=flat&logo=twitter&logoColor=white)](https://twitter.com/yourhandle)
+
+
 
 
 
